@@ -1,0 +1,744 @@
+import type { Product } from '../types/inventory';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    "codigo": "211-0078",
+    "descripcion": "ALCHOL DESNATURALIZADO FC 95LT.",
+    "factor": "LT",
+    "barcode": "100000211-0078",
+    "categoria": "Otros Insumos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "211-0080",
+    "descripcion": "GLICERINA SIN FRAGANCIA-JABOL LT.",
+    "factor": "UD",
+    "barcode": "100000211-0080",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 2,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "222-0293",
+    "descripcion": "SONDA P/OXIGENO ADULTO(BIGOTERA)",
+    "factor": "UD",
+    "barcode": "100000222-0293",
+    "categoria": "Soporte Respiratorio / Fonación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "222-0456",
+    "descripcion": "TORULAS GINECOLOGICAS C/MADERA",
+    "factor": "UD",
+    "barcode": "100000222-0456",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "222-0896",
+    "descripcion": "VALVULA FONACION CON PUERTO DE OXIGENO",
+    "factor": "UD",
+    "barcode": "100000222-0896",
+    "categoria": "Soporte Respiratorio / Fonación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "224-0540",
+    "descripcion": "PARCHE EXTRABISMO ADULTO",
+    "factor": "UD",
+    "barcode": "100000224-0540",
+    "categoria": "Otros Insumos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "224-0624",
+    "descripcion": "AGUJA ACUPUNTURA",
+    "factor": "UD",
+    "barcode": "100000224-0624",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0128",
+    "descripcion": "GASA HIDROFILA 90 CM X 91MT.",
+    "factor": "RO",
+    "barcode": "100000225-0128",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0136",
+    "descripcion": "GORRO ENFERMERA DESECHABLE",
+    "factor": "UD",
+    "barcode": "100000225-0136",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0142",
+    "descripcion": "TEJIDO TUBULAR 10 CM",
+    "factor": "RO",
+    "barcode": "100000225-0142",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0143",
+    "descripcion": "TEJIDO TUBULAR 15 CM",
+    "factor": "RO",
+    "barcode": "100000225-0143",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0145",
+    "descripcion": "TELA ADHESIVA HIPOALERGENICA 5 CMX 9.1 M/DURAPORE",
+    "factor": "CA",
+    "barcode": "100000225-0145",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 3,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0146",
+    "descripcion": "TELA ADHESIVA HIPOALER.CARRETE 2,5 CM/MICROPORE",
+    "factor": "CA",
+    "barcode": "100000225-0146",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0147",
+    "descripcion": "TELA ADHESIVA PLASTICA 2,5 CM ANCHO/TRANSPORE",
+    "factor": "CA",
+    "barcode": "100000225-0147",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0236",
+    "descripcion": "VENDA GASA ELASTICA 6X4CM EN ENVASE IND.ESTERIL/ELASTOMUL",
+    "factor": "UD",
+    "barcode": "100000225-0236",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0286",
+    "descripcion": "FIXOMUL STRECH( ROLLO 10 MT X 5CM)",
+    "factor": "RO",
+    "barcode": "100000225-0286",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0380",
+    "descripcion": "GUANTE DE NITRILO SMALL",
+    "factor": "UD",
+    "barcode": "100000225-0380",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0381",
+    "descripcion": "GUANTE DE NITRILO LARGO",
+    "factor": "UD",
+    "barcode": "100000225-0381",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0382",
+    "descripcion": "VENDA ELASTICA POROSA COLOR PIEL 10 CM X 4,5 M(COVAN)",
+    "factor": "UD",
+    "barcode": "100000225-0382",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0392",
+    "descripcion": "GASA CHICA NO TEJIDA ESTERIL 5X5 CM X2 UDS",
+    "factor": "UD",
+    "barcode": "100000225-0392",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0406",
+    "descripcion": "GUANTE DE NITRILO MEDIUN",
+    "factor": "UD",
+    "barcode": "100000225-0406",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0629",
+    "descripcion": "VENDAS KINESIOLOGICAS (TAPE)",
+    "factor": "RO",
+    "barcode": "100000225-0629",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0635",
+    "descripcion": "VENDA BSN MEDICAL SOFFBAN SYNTHETIC (12 ROLLOS)",
+    "factor": "UD",
+    "barcode": "100000225-0635",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0636",
+    "descripcion": "VENDA BSN MEDICAL COMPRILAN 10X5",
+    "factor": "UD",
+    "barcode": "100000225-0636",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0638",
+    "descripcion": "VENDA FOAMY",
+    "factor": "UD",
+    "barcode": "100000225-0638",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0670",
+    "descripcion": "VENDA BSN MEDICAL COMPRILAN 8X5",
+    "factor": "UD",
+    "barcode": "100000225-0670",
+    "categoria": "Cicatrices y Compresivos",
+    "stockBodega1": 5,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "225-0871",
+    "descripcion": "CINTAS PARA GLUCOMETRO CARESENS",
+    "factor": "UD",
+    "barcode": "100000225-0871",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "241-0264",
+    "descripcion": "LANCETAS CON BIOSEGURIDAD DE USO INTRAOSPITALARIO",
+    "factor": "UD",
+    "barcode": "100000241-0264",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "244-0083",
+    "descripcion": "RRA PARAFINA SOLIDA P/TRAT.TERAPEUTICO",
+    "factor": "KG",
+    "barcode": "100000244-0083",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "252-1449",
+    "descripcion": "TORULAS DE ALGODÓN NO ESTERIL 0,5 GRAMOS",
+    "factor": "UD",
+    "barcode": "100000252-1449",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-0238",
+    "descripcion": "BAJALENGUAS",
+    "factor": "UD",
+    "barcode": "100000340-0238",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-0376",
+    "descripcion": "COMPRESA HUMEDO CALIENTE 25X30 USO KINESITERAPIA",
+    "factor": "UD",
+    "barcode": "100000340-0376",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-1569",
+    "descripcion": "FILTRO HIMIDIFICADOR PARA TRAQUEOSTOMIA",
+    "factor": "UD",
+    "barcode": "100000340-1569",
+    "categoria": "Soporte Respiratorio / Fonación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-2293",
+    "descripcion": "BANDAS ELASTICAS ROJO RESISTENCIA MEDIA BAJA",
+    "factor": "UD",
+    "barcode": "100000340-2293",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-2387",
+    "descripcion": "BANDAS ELASTICAS VERDE RESISTENCIA MEDIA",
+    "factor": "UD",
+    "barcode": "100000340-2387",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-2389",
+    "descripcion": "BANDAS ELASTICAS NEGRA RESISTENCIA MUY FUERTE",
+    "factor": "UD",
+    "barcode": "100000340-2389",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "340-2925",
+    "descripcion": "ELECTRODO AUTOADHESIVO YENS 5X5",
+    "factor": "UD",
+    "barcode": "100000340-2925",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "347-0041",
+    "descripcion": "PASTA ECOGRAFICA X 5LT",
+    "factor": "BI",
+    "barcode": "100000347-0041",
+    "categoria": "Rehabilitación y Terapia",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "100-0104",
+    "descripcion": "COLORANTES PARA TORTA",
+    "factor": "UD",
+    "barcode": "100000100-0104",
+    "categoria": "Fono / Deglución / Alimentos",
+    "stockBodega1": 2,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "100-0368",
+    "descripcion": "ENTEREX ESPESANTE",
+    "factor": "TR",
+    "barcode": "100000100-0368",
+    "categoria": "Fono / Deglución / Alimentos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "100-0446",
+    "descripcion": "COLORANTE COMESTIBLE",
+    "factor": "UD",
+    "barcode": "100000100-0446",
+    "categoria": "Fono / Deglución / Alimentos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "100-0447",
+    "descripcion": "GOMA XANTANA PARA HORNEAR",
+    "factor": "G",
+    "barcode": "100000100-0447",
+    "categoria": "Fono / Deglución / Alimentos",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0002",
+    "descripcion": "BOLSAS PARA BASURA 50X70",
+    "factor": "UD",
+    "barcode": "100000120-0002",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0003",
+    "descripcion": "BOLSAS PARA BASURA 70X90",
+    "factor": "UD",
+    "barcode": "100000120-0003",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0004",
+    "descripcion": "BOLSAS NYLON 15X20 X0,03",
+    "factor": "G",
+    "barcode": "100000120-0004",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0010",
+    "descripcion": "BOLSAS NYLON 25X35 X",
+    "factor": "G",
+    "barcode": "100000120-0010",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0015",
+    "descripcion": "CERA LIQUIDA INCOLORA",
+    "factor": "UD",
+    "barcode": "100000120-0015",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0022",
+    "descripcion": "ESCOBILLONES",
+    "factor": "UD",
+    "barcode": "100000120-0022",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0033",
+    "descripcion": "GLASEX MULTIUSO",
+    "factor": "FC",
+    "barcode": "100000120-0033",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0046",
+    "descripcion": "LIMPIA VIDRIO LIQUIDO",
+    "factor": "UD",
+    "barcode": "100000120-0046",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0047",
+    "descripcion": "LUSTRA MUEBLE",
+    "factor": "UD",
+    "barcode": "100000120-0047",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0060",
+    "descripcion": "DETERGENTE NOBLA",
+    "factor": "G",
+    "barcode": "100000120-0060",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0080",
+    "descripcion": "DESINFECTANTE AMONIACO VIM LIQUIDO",
+    "factor": "UD",
+    "barcode": "100000120-0080",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0097",
+    "descripcion": "LIMPIADOR DESENGRASANTE CREMA(CIF)",
+    "factor": "FC",
+    "barcode": "100000120-0097",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0154",
+    "descripcion": "TOALLA CLINIC INTERFOLIADA",
+    "factor": "PQ",
+    "barcode": "100000120-0154",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0168",
+    "descripcion": "DESINFECTANTE PISO Y BAÑO",
+    "factor": "UD",
+    "barcode": "100000120-0168",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0189",
+    "descripcion": "DESINFECTANTE AEROSOL",
+    "factor": "FC",
+    "barcode": "100000120-0189",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0249",
+    "descripcion": "CLORO EN POLVO",
+    "factor": "G",
+    "barcode": "100000120-0249",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0256",
+    "descripcion": "BOLSAS DE HELADO 4X24 CM",
+    "factor": "UD",
+    "barcode": "100000120-0256",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "120-0258",
+    "descripcion": "TOALLA DESINFECTANTE HUMEDA",
+    "factor": "UD",
+    "barcode": "100000120-0258",
+    "categoria": "Higiene, Aseo y Protección",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0003",
+    "descripcion": "ALFILERES",
+    "factor": "CJ",
+    "barcode": "100000130-0003",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0010",
+    "descripcion": "BLOCK PARA DIBUJO",
+    "factor": "UD",
+    "barcode": "100000130-0010",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0020",
+    "descripcion": "CINTA EMBALAJE 48X40 MTS.TRANSPARENTE",
+    "factor": "RO",
+    "barcode": "100000130-0020",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0035",
+    "descripcion": "CLIPS METALICO ESTÁNDAR 28-30MM",
+    "factor": "CJ",
+    "barcode": "100000130-0035",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0036",
+    "descripcion": "CLIPS GRANDES 50MM",
+    "factor": "CJ",
+    "barcode": "100000130-0036",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0037",
+    "descripcion": "CORCHETES 26/6 (CAJAS 5000 UD)",
+    "factor": "CJ",
+    "barcode": "100000130-0037",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0038",
+    "descripcion": "ELASTICOS (LISTAS DELGADAS)",
+    "factor": "G",
+    "barcode": "100000130-0038",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0082",
+    "descripcion": "FUNDA PLASTICA TRANSPARENTE TAMAÑO CARTA",
+    "factor": "UD",
+    "barcode": "100000130-0082",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0083",
+    "descripcion": "PAPEL FOTOCOPIA CARTA",
+    "factor": "RE",
+    "barcode": "100000130-0083",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0140",
+    "descripcion": "PEGAMENTO EN BARRA",
+    "factor": "TU",
+    "barcode": "100000130-0140",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0168",
+    "descripcion": "PAPEL LUSTRE COLOR",
+    "factor": "PQ",
+    "barcode": "100000130-0168",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0229",
+    "descripcion": "PLASTICINA DIFERENTE COLORES",
+    "factor": "CJ",
+    "barcode": "100000130-0229",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0257",
+    "descripcion": "CAJA DE TEMPERA 12 COLORES",
+    "factor": "UD",
+    "barcode": "100000130-0257",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 1,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  },
+  {
+    "codigo": "130-0285",
+    "descripcion": "OPALINA TAMAÑO CARTA",
+    "factor": "UD",
+    "barcode": "100000130-0285",
+    "categoria": "Administrativo y Estimulación",
+    "stockBodega1": 0,
+    "stockBodega2": 0,
+    "stockMinimo": 2
+  }
+];
