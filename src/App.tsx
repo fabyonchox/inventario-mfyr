@@ -9,7 +9,9 @@ import { HistoryView } from './components/HistoryView';
 import { ScannerModal } from './components/ScannerModal';
 import { MovementModal } from './components/MovementModal';
 import { BarcodeModal } from './components/BarcodeModal';
+import { OrderRequestModal } from './components/OrderRequestModal';
 import { ArrowDownToLine, ArrowUpFromLine, ArrowLeftRight, X } from 'lucide-react';
+
 
 
 export const App: React.FC = () => {
@@ -30,8 +32,10 @@ export const App: React.FC = () => {
   });
 
   const [barcodeModalProduct, setBarcodeModalProduct] = useState<Product | null>(null);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
 
   // Scanned item action drawer (when scanned from global camera button)
+
   const [scannedProductChoice, setScannedProductChoice] = useState<Product | null>(null);
 
   // Load initial data
@@ -70,7 +74,9 @@ export const App: React.FC = () => {
         movements={movements}
         onDataReset={(newProds) => refreshData(newProds)}
         onOpenScanner={() => setScannerOpen(true)}
+        onOpenOrderModal={() => setOrderModalOpen(true)}
       />
+
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-6">
@@ -119,6 +125,14 @@ export const App: React.FC = () => {
         product={barcodeModalProduct}
         onClose={() => setBarcodeModalProduct(null)}
       />
+
+      {/* Monthly Restock Order Generator (Rule 5) */}
+      <OrderRequestModal
+        isOpen={orderModalOpen}
+        onClose={() => setOrderModalOpen(false)}
+        products={products}
+      />
+
 
       {/* Quick Action Drawer after Scanning */}
       {scannedProductChoice && (

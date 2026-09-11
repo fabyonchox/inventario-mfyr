@@ -8,7 +8,8 @@ import {
   Package, 
   Layers,
   Menu,
-  X
+  X,
+  ShoppingCart
 } from 'lucide-react';
 import type { Product, Movement } from '../types/inventory';
 
@@ -19,12 +20,14 @@ interface NavbarProps {
   movements: Movement[];
   onDataReset: (newProducts: Product[]) => void;
   onOpenScanner: () => void;
+  onOpenOrderModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   products,
   movements,
   onDataReset,
+  onOpenOrderModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -94,6 +97,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
             <button
+              onClick={onOpenOrderModal}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-300 rounded-lg transition-all cursor-pointer active:scale-95 shadow-2xs"
+              title="Generar y calcular nómina de pedido mensual a Bodega General"
+            >
+              <ShoppingCart className="w-4 h-4 text-teal-600" />
+              <span>Pedido Bodega</span>
+            </button>
+
+            <button
               onClick={() => exportToExcel(products, movements)}
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 rounded-lg transition-colors cursor-pointer active:scale-95"
               title="Descargar planilla Excel oficial con existencias y kardex"
@@ -110,6 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Download className="w-4 h-4 text-slate-600" />
               <span>Respaldo</span>
             </button>
+
 
             {/* Mobile menu toggle */}
             <button

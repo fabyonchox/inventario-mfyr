@@ -11,8 +11,13 @@ import {
   User, 
   Calendar
 } from 'lucide-react';
-import { RECEPTOR_PRESETS } from '../types/inventory';
+import { 
+  RECEPTOR_PRESETS, 
+  MOTIVOS_SALIDA_OFICIALES, 
+  OBSERVACIONES_ENTRADA_OFICIALES 
+} from '../types/inventory';
 import type { Product, MovementType, WarehouseId } from '../types/inventory';
+
 
 import { processMovement } from '../services/storage';
 
@@ -456,47 +461,95 @@ export const MovementModal: React.FC<MovementModalProps> = ({
             </div>
           )}
 
-          {/* Campos Complementarios: Comprobante y Observación */}
+          {/* Campos Complementarios: Comprobante y Motivo Oficial */}
+          {type === 'SALIDA' && (
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                Motivo Oficial Hospitalario (Directriz Bodega General)
+              </label>
+              <div className="flex flex-wrap gap-1.5">
+                {MOTIVOS_SALIDA_OFICIALES.map((item) => (
+                  <button
+                    key={item.clave}
+                    type="button"
+                    onClick={() => setMotivo(item.clave)}
+                    className={`text-[11px] px-2.5 py-1 rounded-lg border font-medium transition-all cursor-pointer ${
+                      motivo === item.clave
+                        ? 'bg-rose-700 text-white border-rose-700 font-bold shadow-xs'
+                        : 'bg-white hover:bg-rose-50 text-slate-700 border-slate-200'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <input
+                type="text"
+                value={motivo}
+                onChange={(e) => setMotivo(e.target.value)}
+                placeholder="Selecciona arriba o escribe el motivo (ej. aba, baja, falla, préstamo)..."
+                className="w-full px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs"
+              />
+            </div>
+          )}
+
+          {type === 'ENTRADA' && (
+            <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-xl space-y-2">
+              <label className="block text-[11px] font-bold text-emerald-950 uppercase tracking-wider flex items-center justify-between">
+                <span>Tipo de Entrada (Directriz Bodega General)</span>
+                <span className="text-[10px] text-emerald-700 font-normal">Punto 2 correo</span>
+              </label>
+              <div className="flex flex-wrap gap-1.5">
+                {OBSERVACIONES_ENTRADA_OFICIALES.map((obs) => (
+                  <button
+                    key={obs}
+                    type="button"
+                    onClick={() => {
+                      setObservacion(obs);
+                      if (obs === 'Inventario') setNumeroComprobante('Toma Inicial');
+                    }}
+                    className={`text-[11px] px-2.5 py-1 rounded-lg border font-medium transition-all cursor-pointer ${
+                      observacion === obs
+                        ? 'bg-emerald-700 text-white border-emerald-700 font-bold shadow-xs'
+                        : 'bg-white hover:bg-emerald-100 text-slate-700 border-emerald-200'
+                    }`}
+                  >
+                    {obs === 'Inventario' ? '📌 Inventario (Toma Inicial)' : obs}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Comprobante y Observación General */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-[11px] font-bold text-slate-600 uppercase mb-1">
-                N° Comprobante / Guía (Opcional)
+                N° Comprobante / Nómina Bodega (Opcional)
               </label>
               <input
                 type="text"
                 value={numeroComprobante}
                 onChange={(e) => setNumeroComprobante(e.target.value)}
-                placeholder="ej. 4941"
+                placeholder="ej. 4941, Nómina Julio..."
                 className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs"
               />
             </div>
 
             <div>
               <label className="block text-[11px] font-bold text-slate-600 uppercase mb-1">
-                Motivo / Justificación
+                Observaciones Adicionales
               </label>
               <input
                 type="text"
-                value={motivo}
-                onChange={(e) => setMotivo(e.target.value)}
-                placeholder="ej. Reposición semanal, Paciente box 3..."
+                value={observacion}
+                onChange={(e) => setObservacion(e.target.value)}
+                placeholder="ej. Inventario, Conteo físico..."
                 className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs"
               />
             </div>
           </div>
 
-          <div>
-            <label className="block text-[11px] font-bold text-slate-600 uppercase mb-1">
-              Observaciones adicionales (Opcional)
-            </label>
-            <input
-              type="text"
-              value={observacion}
-              onChange={(e) => setObservacion(e.target.value)}
-              placeholder="Detalles sobre estado de cajas, fechas de vencimiento, etc."
-              className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs"
-            />
-          </div>
 
 
           {/* Timestamp Automático */}

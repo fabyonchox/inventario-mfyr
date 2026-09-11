@@ -45,6 +45,21 @@ export const CATEGORIAS_CLINICAS = [
   'Otros Insumos',
 ] as const;
 
+export const MOTIVOS_SALIDA_OFICIALES = [
+  { clave: 'aba', label: 'aba (Abastecimiento / Reposición Box)' },
+  { clave: 'baja', label: 'baja (Vencido / Deterioro / Merma)' },
+  { clave: 'falla', label: 'falla (Defecto de Fábrica / Roto)' },
+  { clave: 'prestamo', label: 'prestamo (Préstamo a otro Servicio)' },
+  { clave: 'tratamiento', label: 'tratamiento (Atención Paciente)' },
+] as const;
+
+export const OBSERVACIONES_ENTRADA_OFICIALES = [
+  'Inventario', // Según directriz oficial de Bodega General
+  'Nómina Mensual Bodega General',
+  'Pedido Extraordinario',
+  'Devolución de Préstamo',
+] as const;
+
 export const RECEPTOR_PRESETS = [
   'Kinesiología - Box 1',
   'Kinesiología - Box 2',
@@ -57,3 +72,4 @@ export const RECEPTOR_PRESETS = [
   'Traumatología (Préstamo)',
   'UCI / Hospitalizados',
 ] as const;
+
